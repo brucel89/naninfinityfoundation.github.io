@@ -1,47 +1,4 @@
-<?php
-use PHPMailer\PHPMailer\PHPMailer;
-
-require_once 'phpmailer/Exception.php';
-require_once 'phpmailer/PHPMailer.php';
-require_once 'phpmailer/SMTP.php';
-
-$mail = new PHPMailer(true);
-
-$alert = '';
-
-if(isset($_POST['submit'])){
-  // $name = $_POST['name'];
-  // $number = $_POST['number'];
-  $email = $_POST['email'];
-  $message = $_POST['message'];
-
-  try{
-    $mail->isSMTP();
-    $mail->Host = 'smtp.gmail.com';
-    $mail->SMTPAuth = true;
-    $mail->Username = 'info.naninfinityfoundation@gmail.com'; // Gmail address which you want to use as SMTP server
-    $mail->Password = 'Admin89_'; // Gmail address Password
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-    $mail->Port = '587';
-
-    $mail->setFrom('info.naninfinityfoundation@gmail.com'); // Gmail address which you used as SMTP server
-    $mail->addAddress('custinfo.naninfinityfoundation@gmail.com'); // Email address where you want to receive emails (you can use any of your gmail address including the gmail address which you used as SMTP server)
-
-    $mail->isHTML(true);
-    $mail->Subject = 'Message Received (Footer)';
-    $mail->Body = "<h3>Email: $email <br>Message : $message</h3>";
-
-    $mail->send();
-    $alert = '<div class="alert-success">
-                 <span class="alert1"> Message Sent! Thank you for contacting us.</span>
-              </div>';
-  } catch (Exception $e){
-    $alert = '<div class="alert-error">
-                <span class="alert2">'.$e->getMessage().'</span>
-              </div>';
-  }
-}
-?>
+<?php include 'footer.php'; ?>
 
 
 <!DOCTYPE html>
@@ -51,7 +8,7 @@ if(isset($_POST['submit'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Education | Naninfinity Foundation</title>
     <meta name="description" content="Sponsorship Program For Kids At NanInfinty, Our Efforts to bring a change in the lives of the millions of children, for Children that remain unlightened by Education. and to provide high qualitative medical services to all.">
-    <meta name="keywords" content="Sponsor a child, sponsor a child in poverty, best site to sponsor a child, child sponsorship program, sponsor a child in chennai, sponsor a child donation, sponsor a child onlin, online charity, Sponsor for food,sponsor for people in poverty, best site to sponsor for poor people, poor people sponsorship program, sponsor food in chennai,sponsor a food donation, sponsor for food distribution, sponsor for food to needy people onlin, online charity, education sponsors, Food sponsors, education for underprivileged children, NGO in India, NGO, Sponsor A Child In Indi, Donate for education, Donate for food, Sponsorship Program For Kids From India, Child Sponsorship, Food Sponsorship, Donate for medicines, Donate for medical camp, Sponsorship Program For medical aid, medical camp Sponsorship, medical aid Sponsorship">
+    <meta name="keywords" content="Sponsor a child, sponsor for people in poverty, best site to sponsor a child, child sponsorship program, sponsor a child in chennai, sponsor a child donation, sponsor a child onlin, online charity, Sponsor for food,sponsor for people in poverty, best site to sponsor for poor people, poor people sponsorship program, sponsor food in chennai,sponsor a food donation, sponsor for food distribution, sponsor for food to needy people onlin, online charity, education sponsors, Food sponsors, education for underprivileged children, NGO in India, NGO, Sponsor A Child In Indi, Donate for education, Donate for food, Sponsorship Program For Kids From India, Child Sponsorship, Food Sponsorship, Donate for medicines, Donate for medical camp, Sponsorship Program For medical aid, medical camp Sponsorship, medical aid Sponsorship">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="robot" CONTENT="index,follow">
     <meta name="refresh" CONTENT="30">
@@ -81,8 +38,7 @@ if(isset($_POST['submit'])){
             "description": "Sponsorship Program For Kids At NanInfinty, Our Efforts to bring a change in the lives of the millions of children, for Children that remain unlightened by Education. and to provide high qualitative medical services to all.",
             "openingHours": "Mo, Tu, We, Th, Fri, Sat, Sun",
             "telephone": "+91 8124936800",
-           "image" :
-        "https://www.naninfinityfoundation.com/images/agaram_logonewtrans.jpg",
+           "image" : "https://www.naninfinityfoundation.com/images/logonewtrans.jpg",
               "address" : {
               "@type" : "PostalAddress",
               "addressLocality" : "Korattur, Chennai",
@@ -115,12 +71,13 @@ if(isset($_POST['submit'])){
     <meta name=state content="Tamil Nadu" />
     <meta property=og:locale content=en_US />
     <meta property=og:type content=article />
-    <meta property=og:title content=" Sponsor a child |sponsor a child in poverty | best site to sponsor a child |child sponsorship program | sponsor a child in chennai |sponsor a child donation | sponsor a child online|online charity | Sponsor for food |sponsor for people in poverty | best site to sponsor for poor people | poor people sponsorship program | sponsor food in chennai |sponsor a food donation | sponsor for food distribution | sponsor for food to needy people online| online charity | education sponsors | Food sponsors | education for underprivileged children | NGO in India | NGO | Sponsor A Child In Indi | Donate for education | Donate for food | Sponsorship Program For Kids From India | Child Sponsorship | Food Sponsorship | Donate for medicines | Donate for medical camp | Sponsorship Program For medical aid | medical camp Sponsorship | medical aid Sponsorship." />
-    <meta property=og:description content=" Sponsor a child |sponsor a child in poverty | best site to sponsor a child |child sponsorship program | sponsor a child in chennai |sponsor a child donation | sponsor a child online|online charity | Sponsor for food |sponsor for people in poverty | best site to sponsor for poor people | poor people sponsorship program | sponsor food in chennai |sponsor a food donation | sponsor for food distribution | sponsor for food to needy people online| online charity | education sponsors | Food sponsors | education for underprivileged children | NGO in India | NGO | Sponsor A Child In Indi | Donate for education | Donate for food | Sponsorship Program For Kids From India | Child Sponsorship | Food Sponsorship | Donate for medicines | Donate for medical camp | Sponsorship Program For medical aid | medical camp Sponsorship | medical aid Sponsorship." />
-    <meta property=og:url content=" https://www.NanInfinity.com " />
+    <meta property=og:title content=" Sponsor a child |sponsor for people in poverty | best site to sponsor a child |child sponsorship program | sponsor a child in chennai |sponsor a child donation | sponsor a child online|online charity | Sponsor for food |sponsor for people in poverty | best site to sponsor for poor people | poor people sponsorship program | sponsor food in chennai |sponsor a food donation | sponsor for food distribution | sponsor for food to needy people online| online charity | education sponsors | Food sponsors | education for underprivileged children | NGO in India | NGO | Sponsor A Child In Indi | Donate for education | Donate for food | Sponsorship Program For Kids From India | Child Sponsorship | Food Sponsorship | Donate for medicines | Donate for medical camp | Sponsorship Program For medical aid | medical camp Sponsorship | medical aid Sponsorship." />
+    <meta property=og:description content=" Sponsor a child |sponsor for people in poverty | best site to sponsor a child |child sponsorship program | sponsor a child in chennai |sponsor a child donation | sponsor a child online|online charity | Sponsor for food |sponsor for people in poverty | best site to sponsor for poor people | poor people sponsorship program | sponsor food in chennai |sponsor a food donation | sponsor for food distribution | sponsor for food to needy people online| online charity | education sponsors | Food sponsors | education for underprivileged children | NGO in India | NGO | Sponsor A Child In Indi | Donate for education | Donate for food | Sponsorship Program For Kids From India | Child Sponsorship | Food Sponsorship | Donate for medicines | Donate for medical camp | Sponsorship Program For medical aid | medical camp Sponsorship | medical aid Sponsorship." />
+    <meta property=og:url content=" https://www.NanInfinityfoundation.com " />
     <meta property=og:site_name content=NanInfinity Foundation />
     <meta property=article:section content="NGO" />
-    <meta name="twitter:title" content=" Sponsor a child |sponsor a child in poverty | best site to sponsor a child |child sponsorship program | sponsor a child in chennai |sponsor a child donation | sponsor a child online|online charity | Sponsor for food |sponsor for people in poverty | best site to sponsor for poor people | poor people sponsorship program | sponsor food in chennai |sponsor a food donation | sponsor for food distribution | sponsor for food to needy people online| online charity | education sponsors | Food sponsors | education for underprivileged children | NGO in India | NGO | Sponsor A Child In Indi | Donate for education | Donate for food | Sponsorship Program For Kids From India | Child Sponsorship | Food Sponsorship | Donate for medicines | Donate for medical camp | Sponsorship Program For medical aid | medical camp Sponsorship | medical aid Sponsorship. " />
+    <meta property=og:image content="https://i.ibb.co/T0YXRwr/logonewtrans.png"/>
+    <meta name="twitter:title" content=" Sponsor a child |sponsor for people in poverty | best site to sponsor a child |child sponsorship program | sponsor a child in chennai |sponsor a child donation | sponsor a child online|online charity | Sponsor for food |sponsor for people in poverty | best site to sponsor for poor people | poor people sponsorship program | sponsor food in chennai |sponsor a food donation | sponsor for food distribution | sponsor for food to needy people online| online charity | education sponsors | Food sponsors | education for underprivileged children | NGO in India | NGO | Sponsor A Child In Indi | Donate for education | Donate for food | Sponsorship Program For Kids From India | Child Sponsorship | Food Sponsorship | Donate for medicines | Donate for medical camp | Sponsorship Program For medical aid | medical camp Sponsorship | medical aid Sponsorship. " />
     <meta name="twitter:url" content=" https://www.twitter.com/nan_foundation" />
     <meta name="twitter:card" content="NanInfinity" />
     <meta name="facebook:url" content="https://www.facebook.com/naninfinityfoundation" />
